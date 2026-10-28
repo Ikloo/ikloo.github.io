@@ -1,0 +1,78 @@
+:root {
+  --bg: #f6f5f1;
+  --ink: #151515;
+  --muted: #5c5c58;
+  --faint: #9a9993;
+  --line: #e4e2db;
+  --accent: #d9480f;
+  --link: #151515;
+  --sans: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono: "JetBrains Mono", ui-monospace, Menlo, monospace;
+  --display: "Space Grotesk", "Inter", system-ui, sans-serif;
+  color-scheme: light;
+}
+
+:root[data-theme="dark"] {
+  --bg: #111214; --ink: #ededed; --muted: #a0a0a6; --faint: #6b6b72; --line: #24252a;
+  --accent: #6fd3b8; --link: #e8e8e8;
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--ink); font: 16px/1.7 var(--sans); -webkit-font-smoothing: antialiased; }
+a { color: var(--link); text-decoration: underline; text-decoration-color: var(--faint); text-underline-offset: 3px; }
+a:hover { color: var(--accent); text-decoration-color: currentColor; }
+.wrap { max-width: 720px; margin: 0 auto; padding: 0 24px; }
+.skip { position: absolute; left: -9999px; }
+.theme { position: fixed; top: 16px; right: 16px; z-index: 10; display: grid; place-items: center; width: 36px; height: 36px;
+  border: 1px solid var(--line); border-radius: 50%; background: var(--bg); color: var(--ink); cursor: pointer; }
+.theme:hover { border-color: var(--faint); }
+.skip:focus { left: 16px; top: 16px; padding: 8px 12px; background: var(--ink); color: var(--bg); }
+
+.hero { padding: 96px 0 24px; }
+.hero h1 { margin: 0; font: 700 clamp(44px, 9vw, 72px)/1 var(--display); letter-spacing: -.04em; }
+.role-line { margin: 16px 0 0; font: 500 14px var(--mono); color: var(--accent); letter-spacing: .02em; }
+.role-line .dot { margin: 0 10px; color: var(--faint); }
+.tagline { margin: 20px 0 0; font-size: 18px; color: var(--muted); max-width: 60ch; }
+.social { display: flex; flex-wrap: wrap; gap: 6px 20px; margin: 24px 0 0; padding: 0; list-style: none; font: 14px var(--mono); }
+
+section { padding-top: 56px; }
+h2 { margin: 0 0 24px; font: 500 13px var(--mono); color: var(--faint); text-transform: uppercase; letter-spacing: .12em; }
+h3 { margin: 0; font-size: 18px; font-weight: 600; }
+h3 a { color: var(--ink); text-decoration-color: var(--line); }
+
+.jobs, .points, .projects, .stack, .school { margin: 0; padding: 0; list-style: none; }
+.job { display: grid; grid-template-columns: 40px 1fr; gap: 8px; padding: 22px 0; border-top: 1px solid var(--line); }
+.job:first-child { border-top: 0; padding-top: 0; }
+.num { font: 13px/28px var(--mono); color: var(--faint); }
+.job-head { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 4px 16px; }
+.when { font: 13px var(--mono); color: var(--faint); }
+.role { margin: 2px 0 0; color: var(--muted); }
+.points li { margin-top: 14px; }
+.points strong { font-weight: 600; }
+.tags { margin: 4px 0 0; font: 12.5px var(--mono); color: var(--faint); }
+
+.projects li { padding: 16px 0; border-top: 1px solid var(--line); }
+.projects li:first-child { border-top: 0; padding-top: 0; }
+.projects h3 { font-size: 16px; }
+.badge { margin-left: 8px; text-decoration: none; padding: 1px 8px; border: 1px solid var(--line); border-radius: 999px; font: 500 11.5px var(--mono); color: var(--muted); vertical-align: 2px; }
+a.pill { color: var(--accent); border-color: color-mix(in srgb, var(--accent) 35%, transparent); }
+a.pill:hover { background: var(--accent); color: var(--bg); text-decoration: none; }
+.projects p { margin: 2px 0 0; }
+.projects .tags { margin-top: 4px; }
+
+.oss { margin: 0; font: 14px/2 var(--mono); }
+.stack li { padding: 6px 0; font: 14px var(--mono); color: var(--muted); }
+.stack .group { display: inline-block; width: 96px; color: var(--ink); }
+.school li { margin: 4px 0; color: var(--muted); }
+
+footer.wrap { margin-top: 80px; padding-bottom: 48px; border-top: 1px solid var(--line); }
+footer .social { margin-top: 24px; }
+footer p { margin: 12px 0 0; font: 13px var(--mono); color: var(--faint); }
+
+@media (max-width: 560px) {
+  .hero { padding-top: 64px; }
+  .job { grid-template-columns: 1fr; }
+  .num { line-height: 1; }
+  .stack .group { display: block; width: auto; }
+}
